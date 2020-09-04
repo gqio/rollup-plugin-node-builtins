@@ -49,7 +49,7 @@ libs.set('tls', EMPTY_PATH);
 export default function (opts) {
   opts = opts || {};
   let cryptoPath = EMPTY_PATH;
-  let fsPath = EMPTY_PATH;
+  let fsPath = require.resolve(join('..', 'src', 'es6', 'fs'));;
   if (opts.crypto) {
     cryptoPath = CRYPTO_PATH;
   }

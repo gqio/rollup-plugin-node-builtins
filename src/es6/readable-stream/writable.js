@@ -4,11 +4,11 @@
 
 
 import {inherits, deprecate} from 'util';
-import {Buffer} from 'buffer';
+import {Buffer} from 'buffer-es6';
 Writable.WritableState = WritableState;
 import {EventEmitter} from 'events';
 import {Duplex} from './duplex';
-import {nextTick} from 'process';
+import {nextTick} from 'process-es6';
 inherits(Writable, EventEmitter);
 
 function nop() {}

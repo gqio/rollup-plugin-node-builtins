@@ -1,7 +1,8 @@
 var vm = require('vm');
 var rollup = require('rollup');
-var builtins = require('..');
+var builtins = require('../dist/index.js');
 var globals = require('rollup-plugin-node-globals');
+var resolve = require('@rollup/plugin-node-resolve');
 var os = require('os');
 var constants = require('constants');
 var debug = require('debug')('builtins:test');
@@ -23,9 +24,10 @@ describe('rollup-plugin-node-builtins', function() {
   files.forEach(function(file) {
     it('works with ' + file, function(done) {
       var config = {
-        entry: 'test/examples/' + file,
+        input: 'test/examples/' + file,
         plugins: [
-          builtins()
+          builtins(),
+          resolve(),
         ]
       };
       if (file === 'url-parse.js' || file === 'domain.js' || file ===   'url-format.js' || file === 'stream.js' || file === 'assert.js' || file === 'string-decoder.js' || file === 'zlib.js') {
@@ -55,7 +57,8 @@ describe('rollup-plugin-node-builtins', function() {
       plugins: [
         builtins({
           crypto: true
-        })
+        }),
+        resolve()
       ]
     };
     rollup.rollup(config).then(function() {
