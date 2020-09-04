@@ -1,6 +1,6 @@
 {
   "name": "@gqio/rollup-plugin-node-builtins",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "use node builtins in browser with rollup",
   "main": "dist/main.js",
   "module": "dist/index.js",
